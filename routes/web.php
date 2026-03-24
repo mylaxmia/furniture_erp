@@ -6,9 +6,10 @@
 
 $routes = [
     // Auth Routes (Public - no session required)
-    'login' => ['controller' => 'LoginController', 'method' => 'login', 'protected' => false],
-    'register' => ['controller' => 'LoginController', 'method' => 'register', 'protected' => false],
-    'logout' => ['controller' => 'LoginController', 'method' => 'logout', 'protected' => false],
+    'login' => ['controller' => 'AuthController', 'method' => 'login', 'protected' => false],
+    'logout' => ['controller' => 'AuthController', 'method' => 'logout', 'protected' => false],
+    'forgot-password' => ['controller' => 'AuthController', 'method' => 'forgotPassword', 'protected' => false],
+    'reset-password' => ['controller' => 'AuthController', 'method' => 'resetPassword', 'protected' => false],
     
     // Dashboard
     '/' => ['controller' => 'DashboardController', 'method' => 'index', 'protected' => true],

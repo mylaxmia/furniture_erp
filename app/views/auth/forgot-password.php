@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Universal Team</title>
+    <title>Forgot Password - Universal Team</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -13,7 +13,7 @@
             min-height: 100vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        .login-container {
+        .form-container {
             background: white;
             padding: 40px;
             border-radius: 10px;
@@ -21,31 +21,31 @@
             width: 100%;
             max-width: 400px;
         }
-        .login-container h2 {
+        .form-container h2 {
             text-align: center;
             margin-bottom: 10px;
             color: #333;
         }
-        .login-container .subtitle {
+        .form-container .subtitle {
             text-align: center;
             color: #999;
             margin-bottom: 30px;
             font-size: 14px;
         }
-        .btn-login {
+        .btn-submit {
             width: 100%;
             padding: 10px;
             font-weight: bold;
         }
-        .register-link {
+        .back-link {
             text-align: center;
             margin-top: 20px;
         }
-        .register-link a {
+        .back-link a {
             color: #667eea;
             text-decoration: none;
         }
-        .register-link a:hover {
+        .back-link a:hover {
             text-decoration: underline;
         }
         .logo {
@@ -59,13 +59,13 @@
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="form-container">
         <div class="logo">
             <h1><i class="fas fa-cubes"></i> Universal Team</h1>
         </div>
 
-        <h2>Login</h2>
-        <p class="subtitle">Access your inventory management system</p>
+        <h2>Forgot Password</h2>
+        <p class="subtitle">Enter your email to reset your password</p>
 
         <?php if (!empty($error)): ?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -74,27 +74,24 @@
             </div>
         <?php endif; ?>
 
+        <?php if (!empty($success)): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?php echo htmlspecialchars($success); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif; ?>
+
         <form method="POST">
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required autofocus>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required autofocus>
             </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-login">Login</button>
+            <button type="submit" class="btn btn-primary btn-submit">Send Reset Link</button>
         </form>
 
-        <div class="forgot-link">
-            <a href="/furniture_erp/?route=forgot-password">Forgot Password?</a>
-        </div>
-
-        <!-- Demo credentials -->
-        <div class="alert alert-info alert-sm mt-3" role="alert" style="font-size: 12px;">
-            <strong>Demo:</strong> master / [secure password]
+        <div class="back-link">
+            <a href="/furniture_erp/?route=login">Back to Login</a>
         </div>
     </div>
 

@@ -80,5 +80,14 @@ class User extends Model
         
         return false;
     }
+
+    /**
+     * Update user password
+     */
+    public function updatePassword($userId, $newPassword)
+    {
+        $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+        return $this->update($userId, ['password' => $hashedPassword]);
+    }
 }
 ?>
