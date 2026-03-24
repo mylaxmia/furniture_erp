@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo APP_NAME; ?> - ERP System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            padding: 20px 0;
+            min-height: calc(100vh - 56px);
+        }
+        .nav-link {
+            color: #333;
+            padding: 10px 20px;
+        }
+        .nav-link:hover {
+            background-color: #e9ecef;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="/furniture_erp/">
+                <i class="fas fa-cubes me-2"></i>
+                <strong><?php echo APP_NAME; ?></strong>
+            </a>
+            <div class="ms-auto d-flex align-items-center gap-3">
+                <!-- User Info (only if logged in) -->
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <span class="text-muted">
+                        <i class="fas fa-user me-1"></i>
+                        <?php echo htmlspecialchars($_SESSION['username']); ?>
+                    </span>
+                <?php endif; ?>
+                
+                <!-- Language Switcher -->
+                <form method="post" style="display:inline;">
+                    <select class="form-select form-select-sm d-inline-block w-auto" onchange="this.form.submit();">
+                        <option value="en" <?php echo ($_SESSION['lang'] ?? 'en') === 'en' ? 'selected' : ''; ?>>EN</option>
+                        <option value="pl" <?php echo ($_SESSION['lang'] ?? 'en') === 'pl' ? 'selected' : ''; ?>>PL</option>
+                    </select>
+                    <input type="hidden" name="set_lang" value="1">
+                </form>
+                
+                <!-- Logout (only if logged in) -->
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <a href="/furniture_erp/?route=logout" class="btn btn-outline-danger btn-sm">Logout</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="px-3 mb-4">
+                <h6 class="text-muted">MENU</h6>
+            </div>
+            <nav class="nav flex-column">
+                <a class="nav-link" href="/furniture_erp/">
+                    <i class="fas fa-home me-2"></i> Dashboard
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=products">
+                    <i class="fas fa-box me-2"></i> Products
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=products/create">
+                    <i class="fas fa-plus me-2"></i> Create Product
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=suppliers">
+                    <i class="fas fa-truck me-2"></i> Suppliers
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=invoices">
+                    <i class="fas fa-file-invoice me-2"></i> Invoices
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=deliveries">
+                    <i class="fas fa-shipping-fast me-2"></i> Deliveries
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=sell">
+                    <i class="fas fa-cash-register me-2"></i> Sell
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=settings">
+                    <i class="fas fa-cog me-2"></i> Settings
+                </a>
+            <hr>
+            <a class="nav-link text-danger" href="/furniture_erp/?route=logout">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+            </a>
