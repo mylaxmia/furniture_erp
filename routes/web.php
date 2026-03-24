@@ -34,6 +34,15 @@ $routes = [
     // Deliveries
     'deliveries' => ['controller' => 'DeliveryController', 'method' => 'index', 'protected' => true],
     
+    // Expenses
+    'expenses' => ['controller' => 'ExpenseController', 'method' => 'index', 'protected' => true],
+    'expenses/create' => ['controller' => 'ExpenseController', 'method' => 'create', 'protected' => true],
+    'expenses/store' => ['controller' => 'ExpenseController', 'method' => 'store', 'protected' => true],
+    'expenses/edit' => ['controller' => 'ExpenseController', 'method' => 'edit', 'protected' => true],
+    'expenses/update' => ['controller' => 'ExpenseController', 'method' => 'update', 'protected' => true],
+    'expenses/delete' => ['controller' => 'ExpenseController', 'method' => 'delete', 'protected' => true],
+    'expenses/file' => ['controller' => 'ExpenseController', 'method' => 'getFile', 'protected' => true],
+    
     // Sales
     'sell' => ['controller' => 'SalesController', 'method' => 'create', 'protected' => true],
     

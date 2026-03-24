@@ -118,6 +118,9 @@
                 <a class="nav-link" href="/furniture_erp/?route=deliveries">
                     <i class="fas fa-shipping-fast me-2"></i> <?php echo t('deliveries'); ?>
                 </a>
+                <a class="nav-link" href="/furniture_erp/?route=expenses">
+                    <i class="fas fa-receipt me-2"></i> <?php echo t('expenses'); ?>
+                </a>
                 <a class="nav-link" href="/furniture_erp/?route=settings">
                     <i class="fas fa-cog me-2"></i> <?php echo t('settings'); ?>
                 </a>
