@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
-        <h1>Welcome, <?php echo htmlspecialchars($user['username']); ?>! 👋</h1>
-        <p class="text-muted">Overview of your furniture ERP system</p>
+        <h1><?php echo t('welcome_user'); ?>, <?php echo htmlspecialchars($user['username']); ?>! 👋</h1>
+        <p class="text-muted"><?php echo t('overview'); ?></p>
     </div>
 </div>
 
@@ -10,7 +10,7 @@
     <div class="col-md-3">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">Total Products</h5>
+                <h5 class="card-title"><?php echo t('total_products'); ?></h5>
                 <h3><?php echo number_format($stats['total_products']); ?></h3>
             </div>
         </div>
@@ -18,7 +18,7 @@
     <div class="col-md-3">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">Total Suppliers</h5>
+                <h5 class="card-title"><?php echo t('total_suppliers'); ?></h5>
                 <h3><?php echo number_format($stats['total_suppliers']); ?></h3>
             </div>
         </div>
@@ -26,7 +26,7 @@
     <div class="col-md-3">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">Total Sales Amount</h5>
+                <h5 class="card-title"><?php echo t('total_sales_amount'); ?></h5>
                 <h3><?php echo number_format($stats['total_sales_amount'], 2, ',', ' '); ?> zł</h3>
             </div>
         </div>
@@ -34,7 +34,7 @@
     <div class="col-md-3">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">Total Orders</h5>
+                <h5 class="card-title"><?php echo t('total_orders'); ?></h5>
                 <h3><?php echo number_format($stats['total_orders']); ?></h3>
             </div>
         </div>
@@ -46,7 +46,7 @@
     <div class="col-md-6">
         <div class="card shadow-sm">
             <div class="card-header">
-                <h5 class="mb-0">Low Stock Alert</h5>
+                <h5 class="mb-0"><?php echo t('low_stock_alert'); ?></h5>
             </div>
             <div class="card-body">
                 <?php if (empty($data['low_stock'])): ?>
@@ -56,8 +56,8 @@
                         <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Stock</th>
+                                    <th><?php echo t('product'); ?></th>
+                                    <th><?php echo t('stock'); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,20 +79,20 @@
     <div class="col-md-6">
         <div class="card shadow-sm">
             <div class="card-header">
-                <h5 class="mb-0">Delivery Status</h5>
+                <h5 class="mb-0"><?php echo t('delivery_status'); ?></h5>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
                         <div class="text-center">
                             <h4 class="text-warning"><?php echo $data['delivery_status']['pending']; ?></h4>
-                            <small class="text-muted">Pending</small>
+                            <small class="text-muted"><?php echo t('pending'); ?></small>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="text-center">
                             <h4 class="text-primary"><?php echo $data['delivery_status']['shipped']; ?></h4>
-                            <small class="text-muted">Shipped</small>
+                            <small class="text-muted"><?php echo t('shipped'); ?></small>
                         </div>
                     </div>
                 </div>
@@ -100,13 +100,13 @@
                     <div class="col-6">
                         <div class="text-center">
                             <h4 class="text-info"><?php echo $data['delivery_status']['in_transit']; ?></h4>
-                            <small class="text-muted">In Transit</small>
+                            <small class="text-muted"><?php echo t('in_transit'); ?></small>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="text-center">
                             <h4 class="text-success"><?php echo $data['delivery_status']['delivered']; ?></h4>
-                            <small class="text-muted">Delivered</small>
+                            <small class="text-muted"><?php echo t('delivered'); ?></small>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
     <div class="col-md-6">
         <div class="card shadow-sm">
             <div class="card-header">
-                <h5 class="mb-0">Best Sellers (This Month)</h5>
+                <h5 class="mb-0"><?php echo t('best_sellers'); ?></h5>
             </div>
             <div class="card-body">
                 <?php if (empty($data['best_sellers'])): ?>
@@ -130,9 +130,9 @@
                         <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Qty Sold</th>
-                                    <th>Revenue</th>
+                                    <th><?php echo t('product'); ?></th>
+                                    <th><?php echo t('qty_sold'); ?></th>
+                                    <th><?php echo t('revenue'); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -155,7 +155,7 @@
     <div class="col-md-6">
         <div class="card shadow-sm">
             <div class="card-header">
-                <h5 class="mb-0">Recent Sales</h5>
+                <h5 class="mb-0"><?php echo t('recent_sales'); ?></h5>
             </div>
             <div class="card-body">
                 <?php if (empty($data['recent_sales'])): ?>
@@ -165,9 +165,9 @@
                         <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Date</th>
-                                    <th>Amount</th>
+                                    <th><?php echo t('id'); ?></th>
+                                    <th><?php echo t('date'); ?></th>
+                                    <th><?php echo t('amount'); ?></th>
                                 </tr>
                             </thead>
                             <tbody>

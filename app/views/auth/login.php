@@ -1,9 +1,24 @@
+<?php
+// Load language system for login page
+session_start();
+$lang = [];
+$current_lang = $_SESSION['lang'] ?? 'en';
+$lang_file = __DIR__ . '/../../../lang/' . $current_lang . '.php';
+if (file_exists($lang_file)) {
+    require_once $lang_file;
+}
+
+function t($key, $default = '') {
+    global $lang;
+    return $lang[$key] ?? ($default ?: $key);
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $current_lang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Universal Team</title>
+    <title><?php echo t('login', 'Login'); ?> - Universal Team</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -64,8 +79,8 @@
             <h1><i class="fas fa-cubes"></i> Universal Team</h1>
         </div>
 
-        <h2>Login</h2>
-        <p class="subtitle">Access your inventory management system</p>
+        <h2><?php echo t('login', 'Login'); ?></h2>
+        <p class="subtitle"><?php echo t('welcome', 'Access your inventory management system'); ?></p>
 
         <?php if (!empty($error)): ?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -76,25 +91,25 @@
 
         <form method="POST">
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
+                <label for="username" class="form-label"><?php echo t('username', 'Username'); ?></label>
                 <input type="text" class="form-control" id="username" name="username" required autofocus>
             </div>
 
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
+                <label for="password" class="form-label"><?php echo t('password', 'Password'); ?></label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-login">Login</button>
+            <button type="submit" class="btn btn-primary btn-login"><?php echo t('login', 'Login'); ?></button>
         </form>
 
         <div class="forgot-link">
-            <a href="/furniture_erp/?route=forgot-password">Forgot Password?</a>
+            <a href="/furniture_erp/?route=forgot-password"><?php echo t('forgot_password', 'Forgot Password?'); ?></a>
         </div>
 
         <!-- Demo credentials -->
         <div class="alert alert-info alert-sm mt-3" role="alert" style="font-size: 12px;">
-            <strong>Demo:</strong> master / [secure password]
+            <strong><?php echo t('demo', 'Demo'); ?>:</strong> master / [secure password]
         </div>
     </div>
 

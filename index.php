@@ -7,6 +7,17 @@
 // Start session
 session_start();
 
+// Handle language switching
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['set_lang'])) {
+    $lang = $_POST['lang'] ?? 'en';
+    if (in_array($lang, ['en', 'pl'])) {
+        $_SESSION['lang'] = $lang;
+    }
+    // Redirect to current page to avoid form resubmission
+    header('Location: ' . $_SERVER['REQUEST_URI']);
+    exit;
+}
+
 // Define paths
 if (!defined('BASE_PATH')) {
     define('BASE_PATH', __DIR__);

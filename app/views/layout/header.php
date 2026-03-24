@@ -58,7 +58,7 @@
                 
                 <!-- Language Switcher -->
                 <form method="post" style="display:inline;">
-                    <select class="form-select form-select-sm d-inline-block w-auto" onchange="this.form.submit();">
+                    <select class="form-select form-select-sm d-inline-block w-auto" name="lang" onchange="this.form.submit();">
                         <option value="en" <?php echo ($_SESSION['lang'] ?? 'en') === 'en' ? 'selected' : ''; ?>>EN</option>
                         <option value="pl" <?php echo ($_SESSION['lang'] ?? 'en') === 'pl' ? 'selected' : ''; ?>>PL</option>
                     </select>
@@ -78,52 +78,52 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="px-3 mb-4">
-                <h6 class="text-muted">MENU</h6>
+                <h6 class="text-muted"><?php echo t('menu'); ?></h6>
             </div>
             <nav class="nav flex-column">
                 <a class="nav-link" href="/furniture_erp/">
-                    <i class="fas fa-home me-2"></i> Dashboard
+                    <i class="fas fa-home me-2"></i> <?php echo t('dashboard'); ?>
                 </a>
 
                 <!-- Products Menu -->
                 <div class="nav-item">
                     <a class="nav-link" href="#productsSubmenu" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="productsSubmenu">
-                        <i class="fas fa-box me-2"></i> Products <i class="fas fa-chevron-down float-end"></i>
+                        <i class="fas fa-box me-2"></i> <?php echo t('products'); ?> <i class="fas fa-chevron-down float-end"></i>
                     </a>
                     <div class="collapse" id="productsSubmenu">
                         <a class="nav-link ms-3" href="/furniture_erp/?route=products">
-                            <i class="fas fa-list me-2"></i> All Products
+                            <i class="fas fa-list me-2"></i> <?php echo t('all_products'); ?>
                         </a>
                         <a class="nav-link ms-3" href="/furniture_erp/?route=products/create">
-                            <i class="fas fa-plus me-2"></i> Add Product
+                            <i class="fas fa-plus me-2"></i> <?php echo t('add_product'); ?>
                         </a>
                     </div>
                 </div>
 
                 <a class="nav-link" href="/furniture_erp/?route=purchases">
-                    <i class="fas fa-shopping-cart me-2"></i> Purchases
+                    <i class="fas fa-shopping-cart me-2"></i> <?php echo t('purchases'); ?>
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=suppliers">
-                    <i class="fas fa-truck me-2"></i> Suppliers
+                    <i class="fas fa-truck me-2"></i> <?php echo t('suppliers'); ?>
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=customers">
-                    <i class="fas fa-users me-2"></i> Customers
+                    <i class="fas fa-users me-2"></i> <?php echo t('customers'); ?>
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=sales">
-                    <i class="fas fa-cash-register me-2"></i> Sales
+                    <i class="fas fa-cash-register me-2"></i> <?php echo t('sales'); ?>
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=invoices">
-                    <i class="fas fa-file-invoice me-2"></i> Invoices
+                    <i class="fas fa-file-invoice me-2"></i> <?php echo t('invoices'); ?>
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=deliveries">
-                    <i class="fas fa-shipping-fast me-2"></i> Deliveries
+                    <i class="fas fa-shipping-fast me-2"></i> <?php echo t('deliveries'); ?>
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=settings">
-                    <i class="fas fa-cog me-2"></i> Settings
+                    <i class="fas fa-cog me-2"></i> <?php echo t('settings'); ?>
                 </a>
             <hr>
             <a class="nav-link text-danger" href="/furniture_erp/?route=logout">
-                <i class="fas fa-sign-out-alt me-2"></i> Logout
+                <i class="fas fa-sign-out-alt me-2"></i> <?php echo t('logout'); ?>
             </a>
         </div>
 
