@@ -44,8 +44,14 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="/furniture_erp/">
-                <i class="fas fa-cubes me-2"></i>
-                <strong><?php echo APP_NAME; ?></strong>
+                <?php $companyLogo = get_setting('company_logo'); ?>
+                <?php $companyName = get_setting('company_name', APP_NAME); ?>
+                <?php if (!empty($companyLogo)): ?>
+                    <img src="<?php echo htmlspecialchars($companyLogo); ?>" alt="Logo" style="height: 32px; margin-right: 8px; object-fit: contain;" />
+                <?php else: ?>
+                    <i class="fas fa-cubes me-2"></i>
+                <?php endif; ?>
+                <strong><?php echo htmlspecialchars($companyName); ?></strong>
             </a>
             <div class="ms-auto d-flex align-items-center gap-3">
                 <!-- User Info (only if logged in) -->
@@ -57,13 +63,16 @@
                 <?php endif; ?>
                 
                 <!-- Language Switcher -->
-                <form method="post" style="display:inline;">
-                    <select class="form-select form-select-sm d-inline-block w-auto" name="lang" onchange="this.form.submit();">
-                        <option value="en" <?php echo ($_SESSION['lang'] ?? 'en') === 'en' ? 'selected' : ''; ?>>EN</option>
-                        <option value="pl" <?php echo ($_SESSION['lang'] ?? 'en') === 'pl' ? 'selected' : ''; ?>>PL</option>
-                    </select>
-                    <input type="hidden" name="set_lang" value="1">
-                </form>
+                <?php $allowSwitch = get_setting('allow_switch', '1'); ?>
+                <?php if ($allowSwitch === '1' || $allowSwitch === 1): ?>
+                    <form method="post" style="display:inline;">
+                        <select class="form-select form-select-sm d-inline-block w-auto" name="lang" onchange="this.form.submit();">
+                            <option value="en" <?php echo ($_SESSION['lang'] ?? 'en') === 'en' ? 'selected' : ''; ?>>EN</option>
+                            <option value="pl" <?php echo ($_SESSION['lang'] ?? 'en') === 'pl' ? 'selected' : ''; ?>>PL</option>
+                        </select>
+                        <input type="hidden" name="set_lang" value="1">
+                    </form>
+                <?php endif; ?>
                 
                 <!-- Logout (only if logged in) -->
                 <?php if (isset($_SESSION['user_id'])): ?>

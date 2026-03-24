@@ -48,6 +48,13 @@ $routes = [
     
     // Settings
     'settings' => ['controller' => 'SettingsController', 'method' => 'index', 'protected' => true],
+    'settings/profile' => ['controller' => 'SettingsController', 'method' => 'profile', 'protected' => true],
+    'settings/company' => ['controller' => 'SettingsController', 'method' => 'company', 'protected' => true],
+    'settings/email' => ['controller' => 'SettingsController', 'method' => 'email', 'protected' => true],
+    'settings/accountant' => ['controller' => 'SettingsController', 'method' => 'accountant', 'protected' => true],
+    'settings/financial' => ['controller' => 'SettingsController', 'method' => 'financial', 'protected' => true],
+    'settings/language' => ['controller' => 'SettingsController', 'method' => 'language', 'protected' => true],
+    'settings/invoice' => ['controller' => 'SettingsController', 'method' => 'invoice', 'protected' => true],
 ];
 
 return $routes;

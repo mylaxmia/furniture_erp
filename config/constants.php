@@ -40,6 +40,27 @@ function t($key, $default = '')
 }
 
 /**
+ * Get setting value from database by key (cached)
+ */
+function get_setting($key, $default = null)
+{
+    static $settings = null;
+    global $pdo;
+
+    if ($settings === null) {
+        $settings = [];
+        if (isset($pdo)) {
+            $stmt = $pdo->query('SELECT setting_key, setting_value FROM settings');
+            foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                $settings[$row['setting_key']] = $row['setting_value'];
+            }
+        }
+    }
+
+    return $settings[$key] ?? $default;
+}
+
+/**
  * Load Language File
  */
 $current_lang = $_SESSION['lang'] ?? DEFAULT_LANG;
