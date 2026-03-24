@@ -26,6 +26,10 @@ $routes = [
     // Suppliers
     'suppliers' => ['controller' => 'SupplierController', 'method' => 'index', 'protected' => true],
     'suppliers/add' => ['controller' => 'SupplierController', 'method' => 'create', 'protected' => true],
+    'suppliers/store' => ['controller' => 'SupplierController', 'method' => 'store', 'protected' => true],
+    'suppliers/edit' => ['controller' => 'SupplierController', 'method' => 'edit', 'protected' => true],
+    'suppliers/update' => ['controller' => 'SupplierController', 'method' => 'update', 'protected' => true],
+    'suppliers/delete' => ['controller' => 'SupplierController', 'method' => 'delete', 'protected' => true],
     
     // Invoices
     'invoices' => ['controller' => 'InvoiceController', 'method' => 'index', 'protected' => true],
