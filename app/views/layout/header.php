@@ -84,23 +84,39 @@
                 <a class="nav-link" href="/furniture_erp/">
                     <i class="fas fa-home me-2"></i> Dashboard
                 </a>
-                <a class="nav-link" href="/furniture_erp/?route=products">
-                    <i class="fas fa-box me-2"></i> Products
-                </a>
-                <a class="nav-link" href="/furniture_erp/?route=products/create">
-                    <i class="fas fa-plus me-2"></i> Create Product
+
+                <!-- Products Menu -->
+                <div class="nav-item">
+                    <a class="nav-link" href="#productsSubmenu" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="productsSubmenu">
+                        <i class="fas fa-box me-2"></i> Products <i class="fas fa-chevron-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="productsSubmenu">
+                        <a class="nav-link ms-3" href="/furniture_erp/?route=products">
+                            <i class="fas fa-list me-2"></i> All Products
+                        </a>
+                        <a class="nav-link ms-3" href="/furniture_erp/?route=products/create">
+                            <i class="fas fa-plus me-2"></i> Add Product
+                        </a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="/furniture_erp/?route=purchases">
+                    <i class="fas fa-shopping-cart me-2"></i> Purchases
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=suppliers">
                     <i class="fas fa-truck me-2"></i> Suppliers
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=customers">
+                    <i class="fas fa-users me-2"></i> Customers
+                </a>
+                <a class="nav-link" href="/furniture_erp/?route=sales">
+                    <i class="fas fa-cash-register me-2"></i> Sales
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=invoices">
                     <i class="fas fa-file-invoice me-2"></i> Invoices
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=deliveries">
                     <i class="fas fa-shipping-fast me-2"></i> Deliveries
-                </a>
-                <a class="nav-link" href="/furniture_erp/?route=sell">
-                    <i class="fas fa-cash-register me-2"></i> Sell
                 </a>
                 <a class="nav-link" href="/furniture_erp/?route=settings">
                     <i class="fas fa-cog me-2"></i> Settings
