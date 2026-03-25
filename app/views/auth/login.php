@@ -1,16 +1,10 @@
 <?php
 // Load language system for login page
-session_start();
 $lang = [];
 $current_lang = $_SESSION['lang'] ?? 'en';
 $lang_file = __DIR__ . '/../../../lang/' . $current_lang . '.php';
 if (file_exists($lang_file)) {
     require_once $lang_file;
-}
-
-function t($key, $default = '') {
-    global $lang;
-    return $lang[$key] ?? ($default ?: $key);
 }
 ?>
 <!DOCTYPE html>
